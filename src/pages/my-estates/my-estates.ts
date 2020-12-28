@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { EstateHomePage } from '../estate-home/estate-home';
+import { LocationsPage } from '../locations/locations';
 
 /**
  * Generated class for the MyEstatesPage page.
@@ -22,4 +24,11 @@ export class MyEstatesPage {
     console.log('ionViewDidLoad MyEstatesPage');
   }
 
+  getLocations() {
+    this.navCtrl.push(LocationsPage); 
+  }
+
+  getSavedeStates(){
+    this.navCtrl.push(EstateHomePage); 
+  }
 }

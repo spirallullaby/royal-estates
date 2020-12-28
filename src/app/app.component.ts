@@ -36,12 +36,13 @@ export class MyApp {
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
   }
-  goHome() {
-    this.nav.push(LocationsPage);
+
+  getLocations() {
+    this.nav.push(LocationsPage); 
   }
 
-  goToTournaments() {
-    this.nav.push(EstateHomePage);
+  getSavedeStates(){
+    this.nav.push(EstateHomePage); 
   }
 
 }

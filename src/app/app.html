@@ -8,8 +8,8 @@
   <ion-content>
     <ion-list>
       <ion-list-header>Navigate</ion-list-header>      
-      <button menuClose ion-item>Home</button>
-      <button menuClose ion-item>Find a Tournament</button>    
+      <button menuClose ion-item (click)="getLocations()">Find a Location</button>
+      <button menuClose ion-item (click)="getSavedeStates()">List of all saved locations</button>    
   </ion-list>
   </ion-content>
 

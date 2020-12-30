@@ -8,6 +8,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { MyEstatesPage, LocationsPage, EstateHomePage,EstatesPage} from '../pages/pages';
 import { RoyalApiProvider } from '../providers/royal-api/royal-api';
 import { HttpClientModule } from '@angular/common/http';
+import { OverviewPage } from '../pages/overview/overview';
+import { SimilarPage } from '../pages/similar/similar';
+import { MapPage } from '../pages/map/map';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -15,11 +19,17 @@ import { HttpClientModule } from '@angular/common/http';
     MyEstatesPage,
     LocationsPage,
     EstateHomePage,
-    EstatesPage
+    EstatesPage,
+    OverviewPage,
+    MapPage,
+    SimilarPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),    
+    IonicModule.forRoot(MyApp),   
+    // AgmCoreModule.forRoot({
+    //   apiKey: 'AIzaSyDPWChHSgOsv165OlT23VOaoi9EDVnhySw'
+    // }),
     HttpClientModule
   ],
   bootstrap: [IonicApp],
@@ -28,7 +38,10 @@ import { HttpClientModule } from '@angular/common/http';
     MyEstatesPage,
     LocationsPage,
     EstateHomePage,
-    EstatesPage
+    EstatesPage,
+    OverviewPage,
+    MapPage,
+    SimilarPage
   ],
   providers: [
     StatusBar,

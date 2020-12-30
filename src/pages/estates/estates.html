@@ -19,12 +19,15 @@
         </ion-label>
       </ion-item-divider>
       <ion-item *ngFor="let estate of getEstatesByRegion(region)">
-        <ion-thumbnail (click)="goToEstateHome(estate.id)" slot="start">
+        <ion-thumbnail (click)="goToEstateHome(estate)" item-start>
           <img src={{estate.image}}>
-        </ion-thumbnail>  
-        <!-- <ion-label>
-          <h4>{{estate.refNumber}}</h4>
-        </ion-label>       -->
+        </ion-thumbnail>
+        <ion-label>
+          <h3>{{estate.refNumber}}</h3>
+          <p>{{estate.type}},{{estate.bedrooms}} bedrooms </p>
+          <a role="button" (click)="goToEstateHome(estate)" style="float:right">View</a>
+          <p>{{locationName}},{{estate.region}}</p>
+        </ion-label> 
       </ion-item>
     </ion-list>
   </ion-list>

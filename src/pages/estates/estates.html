@@ -12,10 +12,20 @@
 
 <ion-content padding>
   <ion-list>
-    <ion-item-divider *ngFor="let region of regions">
-      <ion-label>
-        {{region}}
-      </ion-label>
-    </ion-item-divider>
+    <ion-list *ngFor="let region of regions">
+      <ion-item-divider>
+        <ion-label>
+          {{region}}
+        </ion-label>
+      </ion-item-divider>
+      <ion-item *ngFor="let estate of getEstatesByRegion(region)">
+        <ion-thumbnail (click)="goToEstateHome(estate.id)" slot="start">
+          <img src={{estate.image}}>
+        </ion-thumbnail>  
+        <!-- <ion-label>
+          <h4>{{estate.refNumber}}</h4>
+        </ion-label>       -->
+      </ion-item>
+    </ion-list>
   </ion-list>
 </ion-content>

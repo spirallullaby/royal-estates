@@ -6,10 +6,16 @@
 -->
 <ion-header>
   <ion-navbar>
-    <ion-title>estates</ion-title>
+    <ion-title>Estates in {{locationName}}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-
+  <ion-list>
+    <ion-item-divider *ngFor="let region of regions">
+      <ion-label>
+        {{region}}
+      </ion-label>
+    </ion-item-divider>
+  </ion-list>
 </ion-content>

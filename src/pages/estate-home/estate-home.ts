@@ -15,11 +15,17 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class EstateHomePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  estate: any = {};
 
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.estate = this.navParams.get('estate');
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad EstateHomePage');
+  }
+
+  goHome() {
+    this.navCtrl.popToRoot();
   }
 
 }

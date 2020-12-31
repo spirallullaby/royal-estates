@@ -11,5 +11,36 @@
 </ion-header>
 
 <ion-content padding>
-test overview
+  <ion-card>
+    <ion-card-header>
+      <img src={{estate.image}} />
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>
+        <ion-buttons>
+          <button ion-button>
+            <ion-icon name="bookmark"> Save to my estates</ion-icon>
+          </button>
+        </ion-buttons>
+      </p>
+      <ion-row>
+        <ion-col size="6" class="ion-text-center">
+          <p style="float:left">{{estate.type}}</p>
+        </ion-col>
+        <ion-col size="6" class="ion-text-center">
+          <p style="float:right">Area:{{estate.area}}</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="6" class="ion-text-center">
+          <p style="float:left">{{estate.bedrooms}} bedrooms</p>
+        </ion-col>
+        <ion-col size="6" class="ion-text-center">
+          <p style="float:right">Price:${{estate.price|number : '1.2-2'}}</p>
+        </ion-col>
+      </ion-row>
+      <p style="float:left">{{estate.address}}</p>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

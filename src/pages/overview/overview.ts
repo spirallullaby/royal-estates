@@ -14,8 +14,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'overview.html',
 })
 export class OverviewPage {
+  estate:any = {};
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams) {    
+    this.estate = this.navParams.get('estate');
   }
 
   ionViewDidLoad() {

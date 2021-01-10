@@ -1,3 +1,4 @@
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
@@ -14,9 +15,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'overview.html',
 })
 export class OverviewPage {
-  estate:any = {};
+  estate: any = {};
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {    
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.estate = this.navParams.get('estate');
   }
 
@@ -24,4 +25,10 @@ export class OverviewPage {
     console.log('ionViewDidLoad OverviewPage');
   }
 
+  doRefresh(event) {
+    console.log('Begin operation.');
+    this.estate = this.navParams.get('estate');
+    event.complete();
+    console.log('Operation completed.');
+    }
 }

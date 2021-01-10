@@ -18,15 +18,21 @@ export class RoyalApiProvider {
       .catch(this.handleError);
   }
 
-  getLocationsData(locationId) : Observable<any> {
-    return this.http.get(`${this.baseUrl}/locations-data/${locationId}.json`)
-        .map(response => {
-            this.currentLocation = response;
-            return this.currentLocation;
-    });
+  getAllLocationsData(): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/locations-data.json`)
+      .do(data => console.log('All: ' + JSON.stringify(data)))
+      .catch(this.handleError);
   }
 
-  getCurrentLocation(){
+  getLocationsData(locationId): Observable<any> {
+    return this.http.get(`${this.baseUrl}/locations-data/${locationId}.json`)
+      .map(response => {
+        this.currentLocation = response;
+        return this.currentLocation;
+      });
+  }
+
+  getCurrentLocation() {
     return this.currentLocation;
   }
 

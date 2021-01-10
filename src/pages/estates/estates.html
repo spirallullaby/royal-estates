@@ -11,24 +11,34 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-list>
-    <ion-list *ngFor="let region of regions">
-      <ion-item-divider>
-        <ion-label>
-          {{region}}
-        </ion-label>
-      </ion-item-divider>
-      <ion-item *ngFor="let estate of getEstatesByRegion(region)">
-        <ion-thumbnail (click)="goToEstateHome(estate)" item-start>
-          <img src={{estate.image}}>
-        </ion-thumbnail>
-        <ion-label>
-          <h3>{{estate.refNumber}}</h3>
-          <p>{{estate.type}},{{estate.bedrooms}} bedrooms </p>
-          <a role="button" (click)="goToEstateHome(estate)" style="float:right">View</a>
-          <p>{{locationName}},{{estate.region}}</p>
-        </ion-label> 
-      </ion-item>
-    </ion-list>
+  <ion-list *ngFor="let group of estates | groupBy:'region'| pairs">
+    <ion-item-divider color="secondary">
+      <ion-label> {{group[0]}} </ion-label>
+    </ion-item-divider>
+    <ion-item *ngFor="let estate of group[1]">
+      <ion-thumbnail (click)="goToEstateHome(estate)" item-start>
+        <img src="{{estate.image}}" />
+      </ion-thumbnail>
+      <ion-list>
+        <ion-row>
+          <ion-col text-wrap>
+            <h3>{{estate.refNumber}}</h3>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col text-wrap>
+            <p>{{estate.type}}, {{estate.bedrooms}} bedrooms</p>
+          </ion-col>          
+          <ion-col>
+            <a role="button" (click)="goToEstateHome(estate)" style="float:right">View</a>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col text-wrap>
+            <p>{{estate.region}}</p>
+          </ion-col>
+        </ion-row>
+      </ion-list>
+    </ion-item>
   </ion-list>
 </ion-content>

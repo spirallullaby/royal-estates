@@ -4,13 +4,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { RoyalApiProvider } from '../../providers/royal-api/royal-api';
 import { EstatesPage } from '../estates/estates';
 
-/**
- * Generated class for the LocationsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-locations',

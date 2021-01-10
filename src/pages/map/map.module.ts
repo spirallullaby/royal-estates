@@ -11,4 +11,4 @@ import { AgmCoreModule } from '@agm/core';
     IonicPageModule.forChild(MapPage)
   ],
 })
-export class MapPageModule {}
+export class MapPageModule { }

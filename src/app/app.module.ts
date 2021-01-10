@@ -5,13 +5,16 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { MyEstatesPage, LocationsPage, EstateHomePage,EstatesPage} from '../pages/pages';
+import { MyEstatesPage, LocationsPage, EstateHomePage, EstatesPage } from '../pages/pages';
 import { RoyalApiProvider } from '../providers/royal-api/royal-api';
 import { HttpClientModule } from '@angular/common/http';
 import { OverviewPage } from '../pages/overview/overview';
 import { SimilarPage } from '../pages/similar/similar';
 import { MapPage } from '../pages/map/map';
+
 import { AgmCoreModule } from '@agm/core';
+import { NgPipesModule } from 'ngx-pipes';
+
 
 @NgModule({
   declarations: [
@@ -26,8 +29,12 @@ import { AgmCoreModule } from '@agm/core';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),   
-    HttpClientModule
+    IonicModule.forRoot(MyApp),
+    HttpClientModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAR0VpEMTZyn_YcQ2B9mFw491t5suhpFGE'
+    }),
+    NgPipesModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -43,8 +50,8 @@ import { AgmCoreModule } from '@agm/core';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: IonicErrorHandler, useClass: IonicErrorHandler},
+    { provide: IonicErrorHandler, useClass: IonicErrorHandler },
     RoyalApiProvider
   ]
 })
-export class AppModule {}
+export class AppModule { }

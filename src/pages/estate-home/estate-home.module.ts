@@ -10,4 +10,4 @@ import { EstateHomePage } from './estate-home';
     IonicPageModule.forChild(EstateHomePage),
   ],
 })
-export class EstateHomePageModule {}
+export class EstateHomePageModule { }

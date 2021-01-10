@@ -25,10 +25,10 @@ export class MyEstatesPage {
   }
 
   getLocations() {
-    this.navCtrl.push(LocationsPage); 
+    this.navCtrl.push(LocationsPage);
   }
 
-  getSavedeStates(){
-    this.navCtrl.push(EstateHomePage); 
+  getSavedeStates() {
+    this.navCtrl.push(EstateHomePage);
   }
 }

@@ -4,10 +4,10 @@ import { SimilarPage } from './similar';
 
 @NgModule({
   declarations: [
-    SimilarPage,
+    SimilarPage
   ],
   imports: [
     IonicPageModule.forChild(SimilarPage),
   ],
 })
-export class SimilarPageModule {}
+export class SimilarPageModule { }

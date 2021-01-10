@@ -10,4 +10,4 @@ import { LocationsPage } from './locations';
     IonicPageModule.forChild(LocationsPage),
   ],
 })
-export class LocationsPageModule {}
+export class LocationsPageModule { }

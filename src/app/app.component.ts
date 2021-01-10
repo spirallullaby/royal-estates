@@ -5,7 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { MyEstatesPage } from '../pages/my-estates/my-estates';
 import { LocationsPage } from '../pages/locations/locations';
-import { EstateHomePage} from '../pages/estate-home/estate-home';
+import { EstateHomePage } from '../pages/estate-home/estate-home';
 
 @Component({
   templateUrl: 'app.html'
@@ -15,7 +15,7 @@ export class MyApp {
 
   rootPage: any = MyEstatesPage;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{ title: string, component: any }>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
@@ -38,11 +38,11 @@ export class MyApp {
   }
 
   getLocations() {
-    this.nav.push(LocationsPage); 
+    this.nav.push(LocationsPage);
   }
 
-  getSavedeStates(){
-    this.nav.push(EstateHomePage); 
+  getSavedeStates() {
+    this.nav.push(EstateHomePage);
   }
 
 }

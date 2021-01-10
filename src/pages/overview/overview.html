@@ -22,8 +22,8 @@
     <ion-card-content>
       <p>
         <ion-buttons>
-          <button ion-button>
-            <ion-icon name="bookmark"> Save to my estates</ion-icon>
+          <button ion-button (cslick)='bookmarkClicked()'>
+            <ion-icon name="bookmark"> {{bookmarkText}}</ion-icon>
           </button>
         </ion-buttons>
       </p>

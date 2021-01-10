@@ -16,18 +16,17 @@
     </ion-segment>
     <ion-list>
       <ion-row>
-        <ion-col text-wrap> <ion-label>Filter by type:</ion-label></ion-col>
-        <ion-col text-wrap>
-          <ion-select
+        <ion-col> <ion-label>Filter by type:</ion-label></ion-col>
+        <ion-col>
+          <ion-select style="max-width: 100%"
             [(ngModel)]="selectedEstateType"
-            (ionChange)="filterRegion()"
-            >
-            <ion-option text-wrap>House</ion-option>
-            <ion-option text-wrap>Apartment</ion-option>
-            <ion-option text-wrap>Studio</ion-option>
+            (ionChange)="filterRegion()">
+            <ion-option>House</ion-option>
+            <ion-option>Apartment</ion-option>
+            <ion-option>Studio</ion-option>
           </ion-select>
         </ion-col>
-        <ion-col text-wrap>
+        <ion-col>
           <ion-toggle
             [(ngModel)]="useAdditionalFilter"
             (ionChange)="filterRegion()"
@@ -44,11 +43,11 @@
     [approxItemHeight]="'132px'"
     [headerFn]="getHeader"
   > -->
-  <ion-list *ngFor="let group of estates | groupBy:'region'| pairs">
-    <ion-item-divider color="secondary">
-      <ion-label> {{group[0]}} </ion-label>
+  <ion-list [virtualScroll]="estates" [approxItemHeight]="'132px'" [headerFn]="getHeader">
+    <ion-item-divider color="secondary" *virtualHeader="let header">
+        {{header}}
     </ion-item-divider>
-    <ion-item *ngFor="let estate of group[1]">
+    <ion-item *virtualItem="let estate">
       <ion-thumbnail (click)="goToEstateHome(estate)" item-start>
         <img src="{{estate.image}}" />
       </ion-thumbnail>
@@ -61,8 +60,8 @@
         <ion-row>
           <ion-col text-wrap>
             <p>{{estate.type}}, {{estate.bedrooms}} bedrooms</p>
-          </ion-col>          
-          <ion-col>
+          </ion-col>
+                    <ion-col>
             <a role="button" (click)="goToEstateHome(estate)" style="float:right">View</a>
           </ion-col>
         </ion-row>

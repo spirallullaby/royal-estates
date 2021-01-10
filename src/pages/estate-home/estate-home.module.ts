@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { IonicPageModule, Tabs } from 'ionic-angular';
+import { IonicPageModule } from 'ionic-angular';
 import { EstateHomePage } from './estate-home';
 
 @NgModule({

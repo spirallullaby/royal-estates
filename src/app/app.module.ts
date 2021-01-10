@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { ErrorHandler, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import {IonicStorageModule } from '@ionic/storage';
 
 import { MyApp } from './app.component';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -14,6 +15,8 @@ import { MapPage } from '../pages/map/map';
 
 import { AgmCoreModule } from '@agm/core';
 import { NgPipesModule } from 'ngx-pipes';
+import { MyEstatesProvider } from '../providers/my-estates/my-estates';
+
 
 
 @NgModule({
@@ -34,7 +37,8 @@ import { NgPipesModule } from 'ngx-pipes';
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAR0VpEMTZyn_YcQ2B9mFw491t5suhpFGE'
     }),
-    NgPipesModule
+    NgPipesModule,
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -51,7 +55,8 @@ import { NgPipesModule } from 'ngx-pipes';
     StatusBar,
     SplashScreen,
     { provide: IonicErrorHandler, useClass: IonicErrorHandler },
-    RoyalApiProvider
+    RoyalApiProvider,
+    MyEstatesProvider
   ]
 })
 export class AppModule { }

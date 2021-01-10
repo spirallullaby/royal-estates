@@ -2,10 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { LoadingController } from 'ionic-angular';
 
-import * as _ from "lodash";
-
 import { RoyalApiProvider } from '../../providers/royal-api/royal-api';
-
+import { EstateHomePage } from '../estate-home/estate-home';
 
 
 /**
@@ -59,14 +57,31 @@ export class SimilarPage {
   }
 
   filterRegion() {
+    //apply main filter
     if (this.regionFilter === 'all') {
       this.estates = this.allEstatesInCity.filter(estate => estate.region != '');
     }
     else {
       this.estates = this.allEstatesInCity.filter(estate => estate.region === this.selectedEstate.region);
     }
+    //apply additional filter if turned on
     if (this.useAdditionalFilter) {
       this.estates = this.estates.filter(estate => estate.type === this.selectedEstateType);
     }
+    //sort by region
+    this.estates = this.estates.sort((a, b) => a.region.localeCompare(b.region))
+  }
+
+  getHeader(record, recordIndex, records) {
+    if (recordIndex === 0 || record.region !== records[recordIndex - 1].region) {
+      return record.region;
+    }
+    return null;
+  }
+
+  //TODO need to fix this 
+  goToEstateHome(estate: any) {
+    estate["locationId"] = this.navParams.data.id;
+    this.navCtrl.push(EstateHomePage, estate);
   }
 }

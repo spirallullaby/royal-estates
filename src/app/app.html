@@ -10,9 +10,10 @@
       <ion-list-header>Navigate</ion-list-header>
       <button menuClose ion-item (click)="getLocations()">
         Find a Location
-      </button>
-      <button menuClose ion-item (click)="getSavedeStates()">
-        List of all saved locations
+      </button>      
+      <ion-list-header>List of all saved locations</ion-list-header>        
+      <button menuClose ion-item *ngFor="let fav of favouriteEstates" (click)="goToEstate(fav)">
+        {{fav.refNumber}}
       </button>
     </ion-list>
   </ion-content>

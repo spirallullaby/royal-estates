@@ -19,26 +19,31 @@
       <ion-thumbnail (click)="goToEstateHome(estate)" item-start>
         <img src="{{estate.image}}" />
       </ion-thumbnail>
-      <ion-list>
+      <ion-grid>
         <ion-row>
-          <ion-col text-wrap>
+          <ion-col class="ion-text-wrap" style="text-overflow: ellipsis; overflow:hidden">
             <h3>{{estate.refNumber}}</h3>
           </ion-col>
         </ion-row>
         <ion-row>
-          <ion-col text-wrap>
+          <ion-col class="ion-text-wrap" style="text-overflow: ellipsis; overflow:hidden">
             <p>{{estate.type}}, {{estate.bedrooms}} bedrooms</p>
-          </ion-col>          
-          <ion-col>
-            <a role="button" (click)="goToEstateHome(estate)" style="float:right">View</a>
+          </ion-col>
+          <ion-col class="ion-text-wrap" style="text-overflow: ellipsis; overflow:hidden">
+            <a
+              role="button"
+              (click)="goToEstateHome(estate)"
+              style="float: right"
+              >View</a
+            >
           </ion-col>
         </ion-row>
         <ion-row>
-          <ion-col text-wrap>
+          <ion-col class="ion-text-wrap" style="text-overflow: ellipsis;">
             <p>{{estate.region}}</p>
           </ion-col>
         </ion-row>
-      </ion-list>
+      </ion-grid>
     </ion-item>
   </ion-list>
 </ion-content>

@@ -20,35 +20,40 @@
     </ion-card-header>
 
     <ion-card-content>
-      <p>
-        <ion-buttons>
-          <button ion-button (cslick)='bookmarkClicked()'>
-            <ion-icon name="bookmark"> {{bookmarkText}}</ion-icon>
-          </button>
-        </ion-buttons>
-      </p>
       <ion-list>
         <ion-row>
-          <ion-col size="6" class="ion-text-center">
-            <p style="float: left">{{estate.type}}</p>
-          </ion-col>
-          <ion-col size="6" class="ion-text-center">
-            <p style="float: right">Area:{{estate.area}}</p>
+          <ion-col text-center>
+            <ion-buttons>
+              <button ion-button *ngIf="isFavourite" (click)="bookmarkClicked()" style="width:90%">
+                <ion-icon name="bookmark" style="margin: 5px"></ion-icon>Unfollow estates
+              </button>
+              <button ion-button *ngIf="!isFavourite" (click)="bookmarkClicked()" style="width:90%">
+                <ion-icon name="bookmark" style="margin: 5px"></ion-icon>Save to my estates
+              </button>
+            </ion-buttons>
           </ion-col>
         </ion-row>
         <ion-row>
-          <ion-col size="6" class="ion-text-center">
-            <p style="float: left">
+          <ion-col>
+            <p>{{estate.type}}</p>
+          </ion-col>
+          <ion-col>
+            <p>Area:{{estate.area}}</p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <p>
               <ion-badge color="primary">{{estate.bedrooms}}</ion-badge>
               bedrooms
             </p>
           </ion-col>
-          <ion-col size="6" class="ion-text-center">
-            <p style="float: right">Price:${{estate.price|number : '1.2-2'}}</p>
+          <ion-col>
+            <p>Price: ${{estate.price|number : '1.2-2'}}</p>
           </ion-col>
         </ion-row>
       </ion-list>
-      <p style="float: left">{{estate.address}}</p>
+      <p>{{estate.address}}</p>
     </ion-card-content>
   </ion-card>
 </ion-content>

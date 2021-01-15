@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
 import { MyEstatesProvider } from '../../providers/my-estates/my-estates';
 
 /**
@@ -21,34 +21,51 @@ export class OverviewPage {
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
-    public myEstatesProvider: MyEstatesProvider) {
+    public myEstatesProvider: MyEstatesProvider,
+    public toastController: ToastController,
+    public alertController: AlertController) {
     this.estate = this.navParams.get('estate');
   }
 
-  ionViewDidLoad() {
+  ionViewDidLoad() {    
     this.myEstatesProvider.isFavoriteEstate(this.estate.id)
       .then(value => this.isFavourite = value);
-
   }
 
-  setBookmarkText() {
+  ionViewDidEnter() {      
+  }
+
+  bookmarkClicked() {
     if (this.isFavourite) {
-      this.bookmarkText = "Unfollow estate";
-    }
-    else {
-      this.bookmarkText = "Save to my estates";
+      let confirm = this.alertController.create({
+        title: "Unfollow?",
+        message: "Are you sure you want to remove from saved estates?",
+        buttons: [
+          {
+            text: "Yes",
+            handler: () => {
+              this.isFavourite = false;
+              this.myEstatesProvider.unfavoriteEstate(this.estate);
+              let toast = this.toastController.create({
+                message: "You have unfollowed this estate!",
+                duration: 2000,
+                position: "bottom"
+              });
+              toast.present();
+            }
+          },
+          {
+            text: "No"
+          }
+        ]
+      });
+      confirm.present();
+    } else {
+      this.isFavourite = true;
+      this.myEstatesProvider.favoriteEstate(this.estate);      
     }
   }
 
-  bookmarkClicked(){
-    if(this.isFavourite){
-      this.myEstatesProvider.unfavoriteEstate(this.estate);
-    }
-    else{
-      this.myEstatesProvider.favoriteEstate(this.estate);
-    }
-  }
-  
   doRefresh(event) {
     console.log('Begin operation.');
     this.estate = this.navParams.get('estate');

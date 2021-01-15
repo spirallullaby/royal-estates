@@ -1,2 +1,6 @@
 page-overview {
+  ::-webkit-scrollbar,
+  *::-webkit-scrollbar {
+    display: none;
+  }
 }

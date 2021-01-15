@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MyEstatesProvider } from '../../providers/my-estates/my-estates';
+import { EstateHomePage } from '../estate-home/estate-home';
+import { EstatesPage } from '../estates/estates';
+import { LocationsPage } from '../locations/locations';
 
 /**
  * Generated class for the MyEstatesPage page.
@@ -16,7 +19,7 @@ import { MyEstatesProvider } from '../../providers/my-estates/my-estates';
 })
 export class MyEstatesPage {
 
-  mySavedEstates: any[];
+  mySavedEstates: any[] = [];
   constructor(public navCtrl: NavController, public navParams: NavParams, public myEstatesProvider: MyEstatesProvider) {
   }
 
@@ -28,4 +31,11 @@ export class MyEstatesPage {
     this.myEstatesProvider.getAllFavorites().then(favs => this.mySavedEstates = favs);
   }
 
+  goToEstates(){
+    this.navCtrl.push(LocationsPage); 
+  }
+
+  goToEstateHome(estate){
+    this.navCtrl.push(EstateHomePage, estate); 
+  }
 }

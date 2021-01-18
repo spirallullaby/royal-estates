@@ -7,7 +7,7 @@ import { Events } from 'ionic-angular';
 import { MyEstatesPage } from '../pages/my-estates/my-estates';
 import { LocationsPage } from '../pages/locations/locations';
 import { EstateHomePage } from '../pages/estate-home/estate-home';
-import { MyEstatesProvider } from '../providers/my-estates/my-estates';
+import { MyEstatesProvider } from '../providers/my-estates/my-estates-settings';
 import { LoadingController } from 'ionic-angular/components/loading/loading-controller';
 import { RoyalApiProvider } from '../providers/royal-api/royal-api';
 

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { App } from 'ionic-angular';
 import { LoadingController } from 'ionic-angular';
 
 import { RoyalApiProvider } from '../../providers/royal-api/royal-api';
@@ -30,13 +31,14 @@ export class SimilarPage {
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
+    public app: App,
     public royalApi: RoyalApiProvider,
     public loadingController: LoadingController) {
+    this.selectedEstate = this.navParams.get('estate');
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SimilarPage');
-    this.selectedEstate = this.navParams.get('estate');
     let loader = this.loadingController.create({
       content: 'Getting estates...',
       spinner: 'dots'
@@ -79,9 +81,8 @@ export class SimilarPage {
     return null;
   }
 
-  //TODO need to fix this 
   goToEstateHome(estate: any) {
-    estate["locationId"] = this.navParams.data.id;
-    this.navCtrl.push(EstateHomePage, estate);
+    estate["locationId"] = this.selectedEstate.locationId;
+    this.app.getRootNav().push(EstateHomePage, estate);
   }
 }

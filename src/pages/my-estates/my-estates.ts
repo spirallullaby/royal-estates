@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { MyEstatesProvider } from '../../providers/my-estates/my-estates';
+import { MyEstatesProvider } from '../../providers/my-estates/my-estates-settings';
 import { EstateHomePage } from '../estate-home/estate-home';
-import { EstatesPage } from '../estates/estates';
 import { LocationsPage } from '../locations/locations';
 
 /**

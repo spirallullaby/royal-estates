@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
-import { MyEstatesProvider } from '../../providers/my-estates/my-estates';
+import { MyEstatesProvider } from '../../providers/my-estates/my-estates-settings';
 
 /**
  * Generated class for the OverviewPage page.
@@ -30,9 +30,6 @@ export class OverviewPage {
   ionViewDidLoad() {    
     this.myEstatesProvider.isFavoriteEstate(this.estate.id)
       .then(value => this.isFavourite = value);
-  }
-
-  ionViewDidEnter() {      
   }
 
   bookmarkClicked() {

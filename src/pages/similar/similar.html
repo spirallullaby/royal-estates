@@ -18,9 +18,11 @@
       <ion-row>
         <ion-col> <ion-label>Filter by type:</ion-label></ion-col>
         <ion-col>
-          <ion-select style="max-width: 100%"
+          <ion-select
+            style="max-width: 100%"
             [(ngModel)]="selectedEstateType"
-            (ionChange)="filterRegion()">
+            (ionChange)="filterRegion()"
+          >
             <ion-option>House</ion-option>
             <ion-option>Apartment</ion-option>
             <ion-option>Studio</ion-option>
@@ -43,9 +45,13 @@
     [approxItemHeight]="'132px'"
     [headerFn]="getHeader"
   > -->
-  <ion-list [virtualScroll]="estates" [approxItemHeight]="'132px'" [headerFn]="getHeader">
+  <ion-list
+    [virtualScroll]="estates"
+    [approxItemHeight]="'132px'"
+    [headerFn]="getHeader"
+  >
     <ion-item-divider color="secondary" *virtualHeader="let header">
-        {{header}}
+      {{header}}
     </ion-item-divider>
     <ion-item *virtualItem="let estate">
       <ion-thumbnail (click)="goToEstateHome(estate)" item-start>
@@ -61,8 +67,13 @@
           <ion-col text-wrap>
             <p>{{estate.type}}, {{estate.bedrooms}} bedrooms</p>
           </ion-col>
-                    <ion-col>
-            <a role="button" (click)="goToEstateHome(estate)" style="float:right">View</a>
+          <ion-col>
+            <a
+              role="button"
+              (click)="goToEstateHome(estate)"
+              style="float: right"
+              >View</a
+            >
           </ion-col>
         </ion-row>
         <ion-row>

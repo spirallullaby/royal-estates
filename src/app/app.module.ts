@@ -15,9 +15,7 @@ import { MapPage } from '../pages/map/map';
 
 import { AgmCoreModule } from '@agm/core';
 import { NgPipesModule } from 'ngx-pipes';
-import { MyEstatesProvider } from '../providers/my-estates/my-estates';
-
-
+import { MyEstatesProvider } from '../providers/my-estates/my-estates-settings';
 
 @NgModule({
   declarations: [

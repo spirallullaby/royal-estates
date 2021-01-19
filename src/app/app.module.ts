@@ -33,7 +33,7 @@ import { MyEstatesProvider } from '../providers/my-estates/my-estates-settings';
     IonicModule.forRoot(MyApp),
     HttpClientModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyAR0VpEMTZyn_YcQ2B9mFw491t5suhpFGE'
+      apiKey: ''
     }),
     NgPipesModule,
     IonicStorageModule.forRoot()

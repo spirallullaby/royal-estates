@@ -16,8 +16,8 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-card style="width: 95%" *ngIf="mySavedEstates.length == 0">
+<ion-content>
+  <ion-card *ngIf="mySavedEstates.length == 0">
     <p style="margin: 5px">
       You are not currently following any estates. To save estates, select a
       location, then you can save estates from their estate overview page.
@@ -29,26 +29,27 @@
     </p>
   </ion-card>
   <ion-card *ngIf="mySavedEstates.length > 0" style="width: 95%">
+    <ion-card-header>Saved Estates</ion-card-header>
     <ion-item *ngFor="let estate of mySavedEstates">
       <ion-thumbnail (click)="goToEstateHome(estate)" item-start>
         <img src="{{estate.image}}" />
       </ion-thumbnail>
-      <ion-grid>
+      <ion-grid no-padding item-end>
         <ion-row>
-          <ion-col class="ion-text-wrap" style="text-overflow: ellipsis; overflow: hidden">
-            <h3>{{estate.refNumber}}</h3>
+          <ion-col>
+            <ion-note color="dark">Ref No.{{estate.refNumber}}</ion-note>
           </ion-col>
         </ion-row>
         <ion-row>
-          <ion-col class="ion-text-wrap" style="text-overflow: ellipsis; overflow: hidden">
+          <ion-col col-6>
             <p>{{estate.type}}, {{estate.bedrooms}} bedrooms</p>
           </ion-col>
-          <ion-col class="ion-text-wrap" style="text-overflow: ellipsis; overflow: hidden">
-            <a role="button" (click)="goToEstateHome(estate)" style="float: right">View</a>
+          <ion-col>
+            <a role="button" (click)="goToEstateHome(estate)">View</a>
           </ion-col>
         </ion-row>
         <ion-row>
-          <ion-col class="ion-text-wrap" style="text-overflow: ellipsis; overflow: hidden">
+          <ion-col>
             <p>{{estate.region}}</p>
           </ion-col>
         </ion-row>

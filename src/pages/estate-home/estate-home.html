@@ -5,7 +5,7 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>Ref number:{{estate.refNumber}} </ion-title>
     <ion-buttons end>
       <button ion-button icon-only (click)="goHome()">
@@ -15,7 +15,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
   <ion-tabs>
     <ion-tab tabTitle="overview" [root]="overviewTab" [rootParams]="{estate: estate}" tabIcon="information-circle"></ion-tab>
     <ion-tab tabTitle="map" [root]="mapTab" [rootParams]="{estate: estate}" tabIcon="map"></ion-tab>

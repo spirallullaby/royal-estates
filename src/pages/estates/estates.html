@@ -5,12 +5,12 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>Estates in {{locationName}}</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
   <ion-list *ngFor="let group of estates | groupBy:'region'| pairs">
     <ion-item-divider color="secondary">
       <ion-label> {{group[0]}} </ion-label>
@@ -19,27 +19,22 @@
       <ion-thumbnail (click)="goToEstateHome(estate)" item-start>
         <img src="{{estate.image}}" />
       </ion-thumbnail>
-      <ion-grid>
+      <ion-grid no-padding item-end>
         <ion-row>
-          <ion-col class="ion-text-wrap" style="text-overflow: ellipsis; overflow:hidden">
-            <h3>{{estate.refNumber}}</h3>
+          <ion-col>
+            <ion-note color="dark">Ref No.{{estate.refNumber}}</ion-note>
           </ion-col>
         </ion-row>
         <ion-row>
-          <ion-col class="ion-text-wrap" style="text-overflow: ellipsis; overflow:hidden">
+          <ion-col col-7>
             <p>{{estate.type}}, {{estate.bedrooms}} bedrooms</p>
           </ion-col>
-          <ion-col class="ion-text-wrap" style="text-overflow: ellipsis; overflow:hidden">
-            <a
-              role="button"
-              (click)="goToEstateHome(estate)"
-              style="float: right"
-              >View</a
-            >
+          <ion-col>
+            <a role="button" (click)="goToEstateHome(estate)">View</a>
           </ion-col>
         </ion-row>
         <ion-row>
-          <ion-col class="ion-text-wrap" style="text-overflow: ellipsis;">
+          <ion-col>
             <p>{{estate.region}}</p>
           </ion-col>
         </ion-row>

@@ -35,11 +35,10 @@ export class EstatesPage {
 
     let selectedLocation = this.navParams.data;
     this.locationName = selectedLocation.name;
-    
+
     this.royalApi.getLocationsData(selectedLocation.id)
       .subscribe(data => {
         this.estates = data.estates;
-        
         loader.dismiss();
       });
   }

@@ -3,3 +3,9 @@ An Ionic mobile application, which enables users to easily search, preview and s
 Mobile apps course project repo.
 
 # Screenshots
+![Alt text](screenshots/EstatesHomePage.PNG)
+![Alt text](screenshots/EstatesPage.PNG)
+![Alt text](screenshots/LocationsPage.PNG)
+![Alt text](screenshots/MapPage.PNG)
+![Alt text](screenshots/MyEstatesPage.PNG)
+![Alt text](screenshots/SimilarPage.PNG)

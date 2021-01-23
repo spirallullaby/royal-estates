@@ -35,7 +35,7 @@ export class MapPage {
     this.map = {
       lat: this.currentEstate.latitude,
       lng: this.currentEstate.longitude,
-      zoom: 12,
+      zoom: 15,
       markerLabel: this.currentEstate.refNumber
     };
   }

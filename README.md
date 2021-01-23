@@ -1,3 +1,6 @@
 # royal-estates
 An Ionic mobile application, which enables users to easily search, preview and save, estates organized in different locations and regions and having different properties.
 Mobile apps course project repo.
+
+# IMPORTANT
+Google API Key is not included. To have this application fully funtional a working api key must be added to app.module.ts.

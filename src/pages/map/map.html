@@ -5,19 +5,13 @@
   Ionic pages and navigation.
 -->
 <ion-header></ion-header>
-<ion-content >
-    <agm-map
-      id="map"
-      [latitude]="map.lat"
-      [longitude]="map.lng"
-      [zoom]="map.zoom"
-    >
+<ion-content>
+    <agm-map id="map" [latitude]="map.lat" [longitude]="map.lng" [zoom]="map.zoom">
       <agm-marker
         [latitude]="map.lat"
         [longitude]="map.lng"
         [title]="map.markerLabel"
-        class="ion-no-padding"
-      ></agm-marker>
+        ></agm-marker>
     </agm-map>
 
     <ion-fab left bottom>
